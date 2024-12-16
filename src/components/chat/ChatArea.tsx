@@ -1,6 +1,6 @@
 // src/components/ChatArea.tsx
 import React, { KeyboardEvent } from 'react';
-import { FeedbackDisplay } from './FeedbackDisplay';
+import { FeedbackDisplay } from '../FeedbackDisplay';
 
 interface ChatMessage {
   text: string;

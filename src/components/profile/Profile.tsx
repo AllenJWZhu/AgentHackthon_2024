@@ -1,6 +1,6 @@
 // src/components/Profile.tsx
 import React, { useState, useEffect } from 'react';
-import { useUserStore } from '../store/userStore';
+import { useUserStore } from '../../store/userStore';
 
 interface ProfileProps {
   isOpen: boolean;

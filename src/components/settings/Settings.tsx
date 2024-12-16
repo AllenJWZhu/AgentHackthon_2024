@@ -1,6 +1,6 @@
 // src/components/Settings.tsx
 import React, { useState } from 'react';
-import { useLearningStore } from '../store/learningStore';
+import { useLearningStore } from '../../store/learningStore';
 
 interface SettingsProps {
   isOpen: boolean;
