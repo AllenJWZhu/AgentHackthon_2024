@@ -8,12 +8,22 @@ export interface LearningFeedback {
 }
 
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY || '', // Add fallback
   dangerouslyAllowBrowser: true
 });
 
 export class AIService {
   static async analyzeText(text: string): Promise<LearningFeedback> {
+    if (!import.meta.env.VITE_OPENAI_API_KEY) {
+      console.error('OpenAI API key is missing');
+      return {
+        grammarCorrections: [],
+        vocabularySuggestions: [],
+        structuralImprovement: 'API key is missing',
+        overallPerformance: 0
+      };
+    }
+
     try {
       const response = await openai.chat.completions.create({
         model: "gpt-4",
@@ -51,4 +61,3 @@ export class AIService {
     }
   }
 }
-
