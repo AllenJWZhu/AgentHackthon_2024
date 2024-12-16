@@ -1,8 +1,8 @@
 // src/components/ChatInterface.tsx
 import React, { useState } from 'react';
-import { useLearningStore } from '../store/learningStore';
-import { AIService } from '../services/api';
-import { Sidebar } from './Sidebar';
+import { useLearningStore } from '../../store/learningStore';
+import { AIService } from '../../services/api';
+import { Sidebar } from '../layout/Sidebar';
 import { ChatArea } from './ChatArea';
 
 interface ChatMessage {

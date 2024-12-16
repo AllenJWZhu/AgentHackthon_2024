@@ -1,6 +1,6 @@
 // src/components/SignupPage.tsx
 import React, { useState } from 'react';
-import { useUserStore } from '../store/userStore';
+import { useUserStore } from '../../store/userStore';
 
 interface SignupPageProps {
   onBackToLogin: () => void;

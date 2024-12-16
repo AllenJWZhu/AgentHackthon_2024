@@ -1,12 +1,12 @@
 // src/App.tsx
 import React, { useState } from 'react';
-import { LoginPage } from './components/LoginPage';
-import { SignupPage } from './components/SignupPage';
-import { ForgotPasswordPage } from './components/ForgotPasswordPage';
+import { LoginPage } from './components/auth/LoginPage';
+import { SignupPage } from './components/auth/SignupPage';
+import { ForgotPasswordPage } from './components/auth/ForgotPasswordPage';
 import { HomePage } from './components/HomePage';
-import { ChatInterface } from './components/ChatInterface';
-import { Settings } from './components/Settings';
-import { Profile } from './components/Profile';
+import { ChatInterface } from './components/chat/ChatInterface';
+import { Settings } from './components/settings/Settings';
+import { Profile } from './components/profile/Profile';
 
 export const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
