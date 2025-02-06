@@ -57,42 +57,42 @@ export const useLearningStore = create<LearningState>((set) => ({
   
   // Actions
   setUserLevel: (level) => 
-    set({ userLevel: level }),
+    set((_state) => ({ userLevel: level })),
 
   setMode: (mode) => 
-    set({ currentMode: mode }),
+    set((_state) => ({ currentMode: mode })),
 
   setSubMode: (subMode) => 
-    set({ currentSubMode: subMode }),
+    set((_state) => ({ currentSubMode: subMode })),
 
   addLearningGoal: (goal) => 
-    set((state) => ({ 
-      learningGoals: [...state.learningGoals, goal] 
+    set((_state) => ({ 
+      learningGoals: [..._state.learningGoals, goal] 
     })),
 
   removeLearningGoal: (index) =>
-    set((state) => ({
-      learningGoals: state.learningGoals.filter((_, i) => i !== index)
+    set((_state) => ({
+      learningGoals: _state.learningGoals.filter((_, i) => i !== index)
     })),
 
   setTestPrep: (test, score) => 
-    set({ 
+    set((_state) => ({ 
       testPreparation: { 
         testType: test as 'IELTS' | 'TOEFL', 
         targetScore: score 
       } 
-    }),
+    })),
 
   updateSettings: (newSettings) =>
-    set((state) => ({
+    set((_state) => ({
       settings: {
-        ...state.settings,
+        ..._state.settings,
         ...newSettings
       }
     })),
 
   resetSettings: () =>
-    set((state) => ({
+    set((_state) => ({
       settings: defaultSettings
     })),
 }));

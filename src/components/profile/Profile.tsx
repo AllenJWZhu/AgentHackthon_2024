@@ -10,10 +10,10 @@ interface ProfileProps {
 export const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
   const { user, updateProfile, error: storeError } = useUserStore();
   const [formData, setFormData] = useState({
-    name: '',
+    name: user?.name || '',
     email: '',
-    proficiencyLevel: 'beginner' as 'beginner' | 'intermediate' | 'advanced',
-    learningGoals: ''
+    proficiencyLevel: (user?.proficiencyLevel as 'beginner' | 'intermediate' | 'advanced') || 'beginner',
+    learningGoals: user?.learningGoals?.join('\n') || ''
   });
   const [error, setError] = useState('');
   const [isSaving, setIsSaving] = useState(false);
@@ -23,7 +23,7 @@ export const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
       setFormData({
         name: user.name || '',
         email: user.email || '',
-        proficiencyLevel: user.proficiencyLevel || 'beginner',
+        proficiencyLevel: (user.proficiencyLevel as 'beginner' | 'intermediate' | 'advanced') || 'beginner',
         learningGoals: user.learningGoals?.join('\n') || ''
       });
     }
